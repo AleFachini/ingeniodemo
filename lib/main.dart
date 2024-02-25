@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:ingenio/core/service_locator.dart';
 import 'package:ingenio/presentation/screens/pages/ingenio_page.dart';
 
 void main() {
+  setupLocator(); // Initialize the service locator
   runApp(const MyApp());
 }
 
