@@ -6,7 +6,7 @@ class IngenioRepository {
   Future<List<Employee>> loadEmployeeData() async {
     // Load the JSON string from your assets, lets add loading delay too
     String jsonString = await Future<String>.delayed(
-      const Duration(milliseconds: 5000),
+      const Duration(milliseconds: 2000),
       () => dataJSON,
     );
 
