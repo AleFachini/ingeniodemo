@@ -11,15 +11,22 @@ class IngenioPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final employeesBloc = serviceLocator<EmployeesBloc>();
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          title,
-          style: Theme.of(context).primaryTextTheme.headlineMedium,
-        ),
-        backgroundColor: Theme.of(context).primaryColor,
+    return MaterialApp(
+      title: 'Ingenio Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
       ),
-      body: IngenioListView(bloc: employeesBloc),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            title,
+            style: Theme.of(context).primaryTextTheme.headlineMedium,
+          ),
+          backgroundColor: Theme.of(context).primaryColor,
+        ),
+        body: IngenioListView(bloc: employeesBloc),
+      ),
     );
   }
 }

@@ -9,6 +9,7 @@ class EmployeesBloc {
   final DeleteEmployeeUseCase deleteEmployeeUseCase;
   late final List<Employee> _employeesList;
   List<Employee>? _currentList;
+  List<Employee>? get currentList => _currentList;
 
   final _employeesStreamController =
       StreamController<List<Employee>>.broadcast();
@@ -16,10 +17,10 @@ class EmployeesBloc {
       _employeesStreamController.stream;
 
   EmployeesBloc(this.ingenioRepository, this.deleteEmployeeUseCase) {
-    _initialize();
+    initialize();
   }
 
-  void _initialize() async {
+  void initialize() async {
     _employeesList = await ingenioRepository.loadEmployeeData();
     _employeesStreamController.add(_employeesList);
     _currentList = _employeesList;
